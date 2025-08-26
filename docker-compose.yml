@@ -18,16 +18,15 @@ services:
       - n8n_data:/home/node/.n8n
 
   ngrok:
-    image: wernight/ngrok
+    image: ngrok/ngrok:latest
     restart: always
     depends_on:
       - n8n
-    environment:
-      # сюда вставь свой токен с https://dashboard.ngrok.com/get-started/your-authtoken
-      - NGROK_AUTH=***REMOVED***
-      # Проксируем локальный порт n8n
-      - NGROK_PORT=n8n:5678
-    command: http n8n:5678
+    command:
+      - "http"
+      - "--authtoken=***REMOVED***"
+      - "--region=eu"
+      - "n8n:5678"
 
 volumes:
   n8n_data:
