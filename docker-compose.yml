@@ -14,18 +14,13 @@ services:
       - N8N_PORT=5678
       - N8N_PROTOCOL=http
       - NODE_ENV=production
-      - WEBHOOK_URL=https://abcd-1234.ngrok.io
     volumes:
       - n8n_data:/home/node/.n8n
 
-  ngrok:
-    image: ngrok/ngrok:latest
+  cloudflared:
+    image: cloudflare/cloudflared:latest
     restart: always
-    depends_on:
-      - n8n
-    environment:
-      - NGROK_AUTHTOKEN=***REMOVED***
-    command: http n8n:5678
+    command: tunnel --url http://n8n:5678
 
 volumes:
   n8n_data:
