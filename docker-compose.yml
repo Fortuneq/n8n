@@ -15,8 +15,6 @@ services:
       - N8N_PROTOCOL=https
       - NODE_ENV=production
       - WEBHOOK_URL=https://true-scale.ru/n8n
-      - N8N_PATH=/n8n
-      - VUE_APP_URL_BASE_API=https://true-scale.ru/n8n/
       - GENERIC_TIMEZONE=Europe/Moscow
     volumes:
       - n8n_data:/home/node/.n8n
