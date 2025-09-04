@@ -10,18 +10,20 @@ services:
       - N8N_BASIC_AUTH_ACTIVE=true
       - N8N_BASIC_AUTH_USER=admin
       - N8N_BASIC_AUTH_PASSWORD=***REMOVED***
-      - N8N_HOST=localhost
+      - N8N_HOST=true-scale.ru
       - N8N_PORT=5678
-      - N8N_PROTOCOL=http
+      - N8N_PROTOCOL=https
       - NODE_ENV=production
-      - WEBHOOK_URL=https://maine-doug-all-commander.trycloudflare.com
+      - WEBHOOK_URL=https://true-scale.ru/n8n
+      - GENERIC_TIMEZONE=Europe/Moscow
     volumes:
       - n8n_data:/home/node/.n8n
-
-  cloudflared:
-    image: cloudflare/cloudflared:latest
-    restart: always
-    command: tunnel --url http://n8n:5678
+    networks:
+      - n8n_network
 
 volumes:
   n8n_data:
+
+networks:
+  n8n_network:
+    driver: bridge
