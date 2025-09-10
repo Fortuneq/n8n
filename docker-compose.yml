@@ -14,6 +14,9 @@ services:
       - N8N_PORT=5678
       - N8N_PROTOCOL=https
       - NODE_ENV=production
+      - YCLIENTS_BEARER=***REMOVED***
+      - YCLIENTS_USER=***REMOVED***
+      - VK_TEST_USER=***REMOVED***
       - WEBHOOK_URL=https://n8n.true-scale.ru
       - GENERIC_TIMEZONE=Europe/Moscow
     volumes:
