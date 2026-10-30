@@ -8,16 +8,16 @@ services:
       - "5678:5678"
     environment:
       - N8N_BASIC_AUTH_ACTIVE=true
-      - N8N_BASIC_AUTH_USER=admin
-      - N8N_BASIC_AUTH_PASSWORD=***REMOVED***
-      - N8N_HOST=n8n.true-scale.ru
+      - N8N_BASIC_AUTH_USER=${N8N_BASIC_AUTH_USER}
+      - N8N_BASIC_AUTH_PASSWORD=${N8N_BASIC_AUTH_PASSWORD}
+      - N8N_HOST=${N8N_HOST}
       - N8N_PORT=5678
       - N8N_PROTOCOL=https
       - NODE_ENV=production
-      - YCLIENTS_BEARER=***REMOVED***
-      - YCLIENTS_USER=***REMOVED***
-      - VK_TEST_USER=***REMOVED***
-      - WEBHOOK_URL=https://n8n.true-scale.ru
+      - YCLIENTS_BEARER=${YCLIENTS_BEARER}
+      - YCLIENTS_USER=${YCLIENTS_USER}
+      - VK_TEST_USER=${VK_TEST_USER}
+      - WEBHOOK_URL=https://${N8N_HOST}
       - GENERIC_TIMEZONE=Europe/Moscow
     volumes:
       - n8n_data:/home/node/.n8n
